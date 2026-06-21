@@ -1,16 +1,15 @@
-FROM python:3.14.0
-
-ENV TZ=America/Mexico_City
-
-RUN apt-get update && \
-    apt-get install -y git tzdata
+FROM node:24.11.1
 
 WORKDIR /app
 
 COPY package*.json ./
 
+RUN git clone https://github.com/a376818/nodejs-tcp.git .
+
 RUN npm install
 
-RUN git clone https://github.com/a376818/nodejs-tcp.git .
+ENV PORT=4000
+
+EXPOSE 4000
 
 CMD [ "npm", "start" ]

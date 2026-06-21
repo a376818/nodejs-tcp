@@ -17,7 +17,7 @@ server.on("connection", (socket) => {
   });
 });
 
-server.listen(4000, () => {
+server.listen(4000, "0.0.0.0", () => {
   console.log(
     "El servidor está escuchando en la puerta",
     server.address().port,

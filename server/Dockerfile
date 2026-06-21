@@ -2,14 +2,14 @@ FROM node:24.11.1
 
 WORKDIR /app
 
-COPY package*.json ./
+RUN apt-get update && apt-get install -y git
 
 RUN git clone https://github.com/a376818/nodejs-tcp.git .
 
-RUN npm install
+WORKDIR /app/server
 
-ENV PORT=4000
+RUN npm install
 
 EXPOSE 4000
 
-CMD [ "npm", "start" ]
+CMD ["node", "server.js"]

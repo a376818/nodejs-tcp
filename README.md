@@ -57,21 +57,22 @@ CTRL + C
 
 ## Implementación
 
-Para crear la imagen de Docker, ejecutar en la carpeta server:
+Para crear la imagen de Docker, ejecutar en la carpeta del proyecto:
 
-### `docker build -t tcp-server --build-arg APP_TYPE=server .`
+### `docker build -f Dockerfile.server -t tcp-server .`
+### `docker build -f Dockerfile.client -t tcp-client .`
 
-Ejecutar en la carpeta client:
+Crear red:
 
-### `docker build -t tcp-client --build-arg APP_TYPE=client .`
+### `docker network create tcp-net`
 
 Para ejecutar:
 
-### `docker run -it -p 4000:4000 tcp-server`
+### `docker run -d -it --name server --network tcp-net -p 4000:4000 tcp-server`
 
 Seguido de:
 
-### `docker run -it tcp-client`
+### `docker run -it --name client --network tcp-net tcp-client`
 
 Para correr el programa en Docker con interactividad.
 

@@ -1,15 +1,13 @@
 FROM node:24.11.1
 
-WORKDIR /app
+WORKDIR /app/server
 
 RUN apt-get update && apt-get install -y git
 
 RUN git clone https://github.com/a376818/nodejs-tcp.git .
 
-WORKDIR /app/client
-
-RUN npm install
+RUN cd server && npm install
 
 EXPOSE 4000
 
-CMD ["node", "client.js"]
+CMD ["node", "server/server.js"]

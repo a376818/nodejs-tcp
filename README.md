@@ -57,13 +57,21 @@ CTRL + C
 
 ## Implementación
 
-Para crear la imagen de Docker:
+Para crear la imagen de Docker, ejecutar en la carpeta server:
 
-### `docker build -t nodejs-tpc .`
+### `docker build -t tcp-server --build-arg APP_TYPE=server .`
+
+Ejecutar en la carpeta client:
+
+### `docker build -t tcp-client --build-arg APP_TYPE=client .`
+
+Para ejecutar:
+
+### `docker run -p 4000:4000 tcp-server`
 
 Seguido de:
 
-### `docker run -t -i nodejs-tpc`
+### `docker run tcp-client`
 
 Para correr el programa en Docker con interactividad.
 
@@ -89,5 +97,5 @@ Este proyecto está licenciado bajo MIT License - ver [The MIT License](https://
 
 ## Agradecimientos
 
-* **Tutoriales**
+**Tutoriales**
 * [Cliente-Servidor TCP con Node js - Comunicación via Socket](https://www.youtube.com/watch?v=LFU7gJAOegA)

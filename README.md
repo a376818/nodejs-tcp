@@ -46,32 +46,6 @@ Para ejecutar el client, utilizar el comando:
 node client.js
 ```
 
-## Implementación
-
-Una vez que haya clonado el repositorio en su dispositivo, abra una terminal en el directorio del proyecto y colóquese en la carpeta "server":
-
-```
-cd server
-```
-
-Para ejecutar el servidor, utilizar el comando:
-
-```
-node server.js
-```
-
-Abra otra terminal en el directorio del proyecto y colóquese en la carpeta "client":
-
-```
-cd client
-```
-
-Para ejecutar el client, utilizar el comando:
-
-```
-node client.js
-```
-
 Digite la información y presione ENTER.
 Si no ha presionado 0, la conexión continuará abierta, pudiendo enviar y recibir mensajes entre ambas consolas.
 
@@ -80,6 +54,18 @@ Para cerrar la conexión, envíe '0' desde cualquier terminal y luego presione e
 ```
 CTRL + C
 ```
+
+## Implementación
+
+Para crear la imagen de Docker:
+
+### `docker build -t nodejs-tpc .`
+
+Seguido de:
+
+### `docker run -t -i nodejs-tpc`
+
+Para correr el programa en Docker con interactividad.
 
 ## Construido con
 
